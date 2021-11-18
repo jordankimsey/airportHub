@@ -15,7 +15,6 @@ const MainSearch = () => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         overflowY: 'hidden',
-
       }}
     >
       <SearchContainer>
@@ -29,12 +28,13 @@ const MainSearch = () => {
           type='text'
           placeholder='Enter IATA code eg.."KATL"'
           value={IATA}
-          onChange={(e) => setIATA(e.target.value) }/>
+          onChange={(e) => setIATA(e.target.value)}
+        />
         <Link
           href={{
             pathname: '/airport',
             query: {
-              IataCode: IATA
+              IataCode: IATA,
             },
           }}
         >
@@ -53,7 +53,7 @@ const Wrapper = tw.div`
 
 const SearchContainer = tw.div`
     bg-gray-600 opacity-90 text-white h-1/3 
-    sm:h-1/4 p-3 rounded-lg md:w-3/4 lg:w-1/2 2xl:w-1/3 flex items-center
+    sm:h-1/4 p-3 sm:p-10 rounded-lg md:w-3/4 lg:w-1/2 2xl:w-1/3 flex items-center
     justify-center flex-col text-center
  
 `;
@@ -63,12 +63,12 @@ const SearchInput = tw.input`
 `;
 
 const SearchTitle = tw.div`
-   sm:text-xl md:text-3xl 
+   text-xl md:text-3xl 
 `;
 const SearchDescription = tw.div`
     text-md p-4
 `;
 
 const SearchButton = tw.button`
-    bg-yellow w-40 p-2 mt-3 sm:mt-6 rounded-lg
+    bg-yellow text-black w-40 p-2 mt-3 sm:mt-6 rounded-lg
 `;
