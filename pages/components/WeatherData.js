@@ -55,12 +55,12 @@ const WeatherData = (props) => {
 export default WeatherData;
 
 const Wrapper = tw.div`
-    bg-white  m-3 p-3 rounded-lg container-sm
+    bg-white m-3 p-3 rounded-lg container-sm border-4 border-yellow
 `
 const WeatherInfo = tw.div`
     
 `
 
 const WeatherTitle = tw.h3`
-  inline text-2xl
+  inline text-2xl text-gray-400
 `

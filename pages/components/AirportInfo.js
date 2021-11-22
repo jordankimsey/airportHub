@@ -43,10 +43,10 @@ const AirportInfo = (props) => {
 export default AirportInfo;
 
 const Wrapper = tw.div`
-     rounded-lg container-sm m-3 p-4 bg-white flex flex-col shadow-2xl justify-center
+     rounded-lg container-sm m-3 p-4 bg-white flex flex-col shadow-2xl justify-center border-4 border-yellow
 `;
 const AirportName = tw.div`
-    text-lg
+    text-lg 
 `
 
 const AirportData = tw.div`
