@@ -12,5 +12,5 @@ export default function Home() {
 }
 
 const Wrapper = tw.div`
-  bg-gray-300 h-screen
+  bg-gray-300 h-screen overflow-y-hidden
 `

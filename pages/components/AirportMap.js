@@ -41,12 +41,12 @@ const AirportMap = (props) => {
         .addTo(map);
   }
   
-  
-    return <Wrapper id='map'></Wrapper>;
+  //removed the id='map for map to render too may cause error later'
+    return <Wrapper></Wrapper>;
   }
 
 export default AirportMap;
 
 const Wrapper = tw.div`
-  flex-1 w-screen
-`
+  
+`;

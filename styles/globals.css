@@ -14,3 +14,8 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.airportMap {
+  height: 1000px;
+  background-color: aqua;
+}
