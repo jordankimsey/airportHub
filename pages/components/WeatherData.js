@@ -1,7 +1,12 @@
 import React, {useEffect} from 'react'
 import tw from 'tailwind-styled-components'
+import Clouds from './Clouds';
 
 const WeatherData = (props) => {
+  let clouds = props.airportWeather.clouds;
+  console.log(props)
+
+
 
     return (
       <Wrapper>
@@ -13,33 +18,46 @@ const WeatherData = (props) => {
             <WeatherTitle>Time:</WeatherTitle> {props.airportWeather.timeStamp}
           </h3>
           <h3>
-            <WeatherTitle>Metar Time:</WeatherTitle> {props.airportWeather.metarTime}
+            <WeatherTitle>Metar Time:</WeatherTitle>{' '}
+            {props.airportWeather.metarTime}
           </h3>
           <h3>
-            <WeatherTitle>Flight Rules:</WeatherTitle> {props.airportWeather.rules}
+            <WeatherTitle>Flight Rules:</WeatherTitle>{' '}
+            {props.airportWeather.rules}
           </h3>
           <h3>
-            <WeatherTitle>Altimeter:</WeatherTitle> {props.airportWeather.altimeter} inHg
-          </h3>
-          {/* need to map array of clouds */}
-          {/* <h3>Clouds: { props.airportWeather.clouds}</h3> */}
-          <h3>
-            <WeatherTitle>Visibility:</WeatherTitle> {props.airportWeather.visibility} sm
+            <WeatherTitle>Altimeter:</WeatherTitle>{' '}
+            {props.airportWeather.altimeter} inHg
           </h3>
           <h3>
-            <WeatherTitle>Wind Direction:</WeatherTitle> {props.airportWeather.windDirection}
+            <CloudContainer>
+              <WeatherTitle>Clouds:</WeatherTitle>
+              <Clouds cloud={props.airportWeather.clouds} />
+            </CloudContainer>
           </h3>
           <h3>
-            <WeatherTitle>Wind Speed:</WeatherTitle> {props.airportWeather.windSpeed} kts
+            <WeatherTitle>Visibility:</WeatherTitle>{' '}
+            {props.airportWeather.visibility} sm
           </h3>
           <h3>
-            <WeatherTitle>Wind Guest:</WeatherTitle> {props.airportWeather.windGuest}
+            <WeatherTitle>Wind Direction:</WeatherTitle>{' '}
+            {props.airportWeather.windDirection}&deg;
           </h3>
           <h3>
-            <WeatherTitle>Temperature:</WeatherTitle> {props.airportWeather.temp} C
+            <WeatherTitle>Wind Speed:</WeatherTitle>{' '}
+            {props.airportWeather.windSpeed} kts
           </h3>
           <h3>
-            <WeatherTitle>Dewpoint:</WeatherTitle> {props.airportWeather.dewpoint} deg celcus **
+            <WeatherTitle>Wind Guest:</WeatherTitle>{' '}
+            {props.airportWeather.windGuest}
+          </h3>
+          <h3>
+            <WeatherTitle>Temperature:</WeatherTitle>{' '}
+            {props.airportWeather.temp} &deg;C
+          </h3>
+          <h3>
+            <WeatherTitle>Dewpoint:</WeatherTitle>{' '}
+            {props.airportWeather.dewpoint} &deg;C
           </h3>
           <h3>
             <WeatherTitle>Remarks:</WeatherTitle> {props.airportWeather.remarks}
@@ -58,7 +76,11 @@ const Wrapper = tw.div`
     bg-white m-3 p-3 rounded-lg container-sm border-4 border-yellow
 `
 const WeatherInfo = tw.div`
-    
+    text-lg
+`
+
+const CloudContainer = tw.div`
+  flex
 `
 
 const WeatherTitle = tw.h3`

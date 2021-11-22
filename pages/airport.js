@@ -22,7 +22,7 @@ const Airport = () => {
     timeStamp: null,
     rules: '',
     altimeter: '',
-    clouds: '',
+    clouds: [],
     visibility: '',
     windDirection: '',
     windGust: '',
@@ -100,20 +100,19 @@ const Airport = () => {
     // create api call to fetch data and pass data to different props to render airport data
     <Wrapper>
       <Header />
-      
-        <MapContainer id='map'>
-          <ButtonContainer>
-            <Link href='/'>
-              <BackButton src='https://img.icons8.com/ios-filled/50/000000/left.png' />
-            </Link>
-          </ButtonContainer>
-          <AirportMap airportCoordinates={airportCoordinates} />
-        </MapContainer>
-        <AirportWeatherData>
-          <WeatherData airportWeather={airportWeather} />
-          <AirportInfo airportInfo={airportCoordinates} />
-        </AirportWeatherData>
-      
+
+      <MapContainer id='map'>
+        <ButtonContainer>
+          <Link href='/'>
+            <BackButton src='https://img.icons8.com/ios-filled/50/000000/left.png' />
+          </Link>
+        </ButtonContainer>
+        <AirportMap airportCoordinates={airportCoordinates} />
+      </MapContainer>
+      <AirportWeatherData>
+        <AirportInfo airportInfo={airportCoordinates} />
+        <WeatherData airportWeather={airportWeather} />
+      </AirportWeatherData>
     </Wrapper>
   );
 };
@@ -137,5 +136,5 @@ const BackButton = tw.img`
 `;
 
 const AirportWeatherData = tw.div`
-     h-1/2 flex flex-col md:flex-row md:mt-12 md:justify-center items-center w-screen
+     h-1/2 flex flex-col md:flex-row md:mt-12 md:justify-center md:items-start w-screen
 `;
