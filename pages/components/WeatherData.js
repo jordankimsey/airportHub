@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import tw from 'tailwind-styled-components'
 import Clouds from './Clouds';
 

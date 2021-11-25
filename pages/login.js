@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import { signInWithPopup, onAuthStateChanged } from 'firebase/auth';
 import tw from 'tailwind-styled-components';
 import Header from './components/Header';
-import Link from 'next/link';
 import { auth, provider } from '../firebase';
 
 
