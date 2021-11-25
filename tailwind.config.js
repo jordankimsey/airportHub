@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         yellow: '#eddb19',
+        
       },
     },
   },

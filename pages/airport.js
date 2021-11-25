@@ -120,7 +120,7 @@ const Airport = () => {
 export default Airport;
 
 const Wrapper = tw.div`
-    h-screen bg-gray-300 flex flex-col w-screen justify-center overflow-y-scroll
+    h-screen bg-gray-200 flex flex-col w-screen justify-center overflow-y-scroll
 `;
 
 const MapContainer = tw.div`
