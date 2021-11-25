@@ -4,10 +4,7 @@ import Clouds from './Clouds';
 
 const WeatherData = (props) => {
   let clouds = props.airportWeather.clouds;
-  console.log(props)
-
-
-
+ 
     return (
       <Wrapper>
         <WeatherInfo>
