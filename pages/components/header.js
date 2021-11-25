@@ -23,7 +23,7 @@ const Header = () => {
         router.push('/login');
       }
     });
-  }, []);
+  }, [router]);
 
   return (
     <Wrapper>

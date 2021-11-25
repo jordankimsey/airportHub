@@ -37,6 +37,7 @@ const MainSearch = () => {
               IataCode: IATA,
             },
           }}
+          passHref
         >
           <SearchButton>Search</SearchButton>
         </Link>

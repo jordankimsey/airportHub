@@ -103,7 +103,7 @@ const Airport = () => {
 
       <MapContainer id='map'>
         <ButtonContainer>
-          <Link href='/'>
+          <Link href='/' passHref>
             <BackButton src='https://img.icons8.com/ios-filled/50/000000/left.png' />
           </Link>
         </ButtonContainer>
