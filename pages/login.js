@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { signInWithPopup, onAuthStateChanged } from 'firebase/auth';
 import tw from 'tailwind-styled-components';
-import Header from './components/header';
+import Header from './components/Header';
 import Link from 'next/link';
+import { auth, provider } from '../firebase';
+
 
 
 const Login = () => {
+
+  const router = useRouter()
+  
+  useEffect(() => {
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        router.push('/')
+      }
+    })
+  }, [])
+
   return (
     <Wrapper
       style={{
@@ -24,10 +39,10 @@ const Login = () => {
           <LoginWelcome>
             <h1>Welcome Back!</h1>
           </LoginWelcome>
-                  <LoginText>Please sign in to access your account</LoginText>
-                  <Link href='/'>
-          <GoogleButton>Sign in with Google </GoogleButton>
-          </Link>
+          <LoginText>Please sign in to access your account</LoginText>
+          <GoogleButton onClick={() => signInWithPopup(auth, provider)}>
+            Sign in with Google{' '}
+          </GoogleButton>
         </LoginCard>
       </Container>
     </Wrapper>
@@ -48,6 +63,9 @@ const LoginCard = tw.div`
      text-center shadow-2xl flex-col items-center justify-between
 `;
 
+
+
+
 const LoginWelcome = tw.div`
     text-xl
 `;
@@ -57,5 +75,5 @@ const LoginText = tw.div`
 `;
 
 const GoogleButton = tw.button`
-    bg-black w-full py-3 rounded-lg
+    bg-yellow text-black w-full py-3 rounded-lg
 `;

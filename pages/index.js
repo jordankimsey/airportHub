@@ -1,5 +1,5 @@
 import tw from 'tailwind-styled-components';
-import Header from './components/header';
+import Header from './components/Header';
 import MainSearch from './components/mainSearch';
 
 export default function Home() {

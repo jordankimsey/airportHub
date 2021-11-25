@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import tw from 'tailwind-styled-components';
 import AirportInfo from './components/AirportInfo';
 import AirportMap from './components/AirportMap';
-import Header from './components/header';
+import Header from './components/Header';
 import WeatherData from './components/WeatherData';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
