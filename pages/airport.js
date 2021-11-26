@@ -35,33 +35,41 @@ const Airport = () => {
   });
 
   const getAirportCoordinates = (IataCode) => {
-    fetch(
-      `https://avwx.rest/api/station/${IataCode}?format=json&` +
+    try {
+      fetch(
+        `https://avwx.rest/api/station/${IataCode}?format=json&` +
         new URLSearchParams({
           token: '3VscM03wDOQIXkxWJTAAqoPzsYH32Z8GWX6VF6uTe7M',
         })
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setAirportCoordinates({
-          longitude: data.longitude,
-          latitude: data.latitude,
-          name: data.name,
-          city: data.city,
-          state: data.state,
-          country: data.country,
-          IATA: data.iata,
-          ICAO: data.icao,
-          elevation: data.elevation_ft,
-          type: data.type,
-          wiki: data.wiki,
-          website: data.website,
-        });
-      });
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          setAirportCoordinates({
+            longitude: data.longitude,
+            latitude: data.latitude,
+            name: data.name,
+            city: data.city,
+            state: data.state,
+            country: data.country,
+            IATA: data.iata,
+            ICAO: data.icao,
+            elevation: data.elevation_ft,
+            type: data.type,
+            wiki: data.wiki,
+            website: data.website,
+          });
+        })
+    } catch (error) {
+      console.log(error)
+    }
+ 
   };
 
+  //working code with error if no airport found
   const getAirportWeather = (IataCode) => {
-    fetch(
+    try {
+ fetch(
       `https://avwx.rest/api/metar/${IataCode}?` +
         new URLSearchParams({
           token: '3VscM03wDOQIXkxWJTAAqoPzsYH32Z8GWX6VF6uTe7M',
@@ -69,7 +77,6 @@ const Airport = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setAirportWeather({
           raw: data.raw,
           timeStamp: data.meta.timestamp,
@@ -86,14 +93,60 @@ const Airport = () => {
           dewpoint: data.dewpoint.value,
           wxCode: data.wx_codes,
         });
-
-
-      });
+      })  
+    } catch (error) {
+      console.log(error)
+    }
   };
 
+  //new fux throws error
+//   useEffect(() => {
+// fetch(
+//   `https://avwx.rest/api/metar/${IataCode}?` +
+//     new URLSearchParams({
+//       token: '3VscM03wDOQIXkxWJTAAqoPzsYH32Z8GWX6VF6uTe7M',
+//     })
+// )
+//   .then((response) => {
+//     if (response.ok) {
+//       response.json();
+//     }
+//     throw response;
+//   })
+//   .then((data) => {
+//     setAirportWeather({
+//       raw: data.raw,
+//       timeStamp: data.meta.timestamp,
+//       rules: data.flight_rules,
+//       altimeter: data.altimeter.value,
+//       clouds: data.clouds,
+//       visibility: data.visibility.repr,
+//       windDirection: data.wind_direction.repr,
+//       windGust: data.wind_guest,
+//       windSpeed: data.wind_speed.value,
+//       temp: data.temperature.value,
+//       metarTime: data.time.repr,
+//       remarks: data.remarks,
+//       dewpoint: data.dewpoint.value,
+//       wxCode: data.wx_codes,
+//     });
+//   })
+//   .catch((error) => {
+//     console.log('error fetching data');
+//   })
+//   }, [IataCode])
+
+  
+
+  //working code with error if no airport found
   useEffect(() => {
-    getAirportCoordinates(IataCode);
-    getAirportWeather(IataCode);
+    console.log(IataCode);
+    if (IataCode) {
+      getAirportCoordinates(IataCode);
+      getAirportWeather(IataCode);
+    } else {
+      console.log('Airport Not found');
+    }
   }, [IataCode]);
 
   return (
