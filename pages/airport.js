@@ -22,7 +22,7 @@ const Airport = () => {
     timeStamp: '',
     rules: '',
     altimeter: '',
-    clouds: [],
+    clouds: ['Clear'],
     visibility: '',
     windDirection: '',
     windGust: '',
