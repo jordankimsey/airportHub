@@ -34,9 +34,9 @@ const Airport = () => {
     wxCode: '',
   });
 
-  const getAirportCoordinates = (IataCode) => {
+  const getAirportCoordinates = async (IataCode) => {
     try {
-      fetch(
+      await fetch(
         `https://avwx.rest/api/station/${IataCode}?format=json&` +
         new URLSearchParams({
           token: '3VscM03wDOQIXkxWJTAAqoPzsYH32Z8GWX6VF6uTe7M',
@@ -67,9 +67,9 @@ const Airport = () => {
   };
 
   //working code with error if no airport found
-  const getAirportWeather = (IataCode) => {
+  const getAirportWeather = async (IataCode) => {
     try {
- fetch(
+ await fetch(
       `https://avwx.rest/api/metar/${IataCode}?` +
         new URLSearchParams({
           token: '3VscM03wDOQIXkxWJTAAqoPzsYH32Z8GWX6VF6uTe7M',
