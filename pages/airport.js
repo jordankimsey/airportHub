@@ -18,7 +18,7 @@ const Airport = () => {
   });
 
   const [airportWeather, setAirportWeather] = useState({
-    raw: '',
+    raw: 'Loading ...',
     timeStamp: '',
     rules: '',
     altimeter: '',
