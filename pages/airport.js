@@ -19,7 +19,7 @@ const Airport = () => {
 
   const [airportWeather, setAirportWeather] = useState({
     raw: '',
-    timeStamp: null,
+    timeStamp: '',
     rules: '',
     altimeter: '',
     clouds: [],
@@ -35,17 +35,16 @@ const Airport = () => {
   });
 
   const getAirportCoordinates = async (IataCode) => {
-    try {
-      await fetch(
+    // try {
+      const request = await fetch(
         `https://avwx.rest/api/station/${IataCode}?format=json&` +
         new URLSearchParams({
           token: '3VscM03wDOQIXkxWJTAAqoPzsYH32Z8GWX6VF6uTe7M',
         })
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          setAirportCoordinates({
+      );
+      const data = await request.json();
+
+     setAirportCoordinates({
             longitude: data.longitude,
             latitude: data.latitude,
             name: data.name,
@@ -59,25 +58,43 @@ const Airport = () => {
             wiki: data.wiki,
             website: data.website,
           });
-        })
-    } catch (error) {
-      console.log(error)
-    }
+  
+        // .then((response) => response.json())
+    //     .then((data) => {
+    //       console.log(data);
+    //       setAirportCoordinates({
+    //         longitude: data.longitude,
+    //         latitude: data.latitude,
+    //         name: data.name,
+    //         city: data.city,
+    //         state: data.state,
+    //         country: data.country,
+    //         IATA: data.iata,
+    //         ICAO: data.icao,
+    //         elevation: data.elevation_ft,
+    //         type: data.type,
+    //         wiki: data.wiki,
+    //         website: data.website,
+    //       });
+    //     })
+    // } catch (error) {
+    //   console.log(error)
+    // }
  
-  };
+  }
 
   //working code with error if no airport found
   const getAirportWeather = async (IataCode) => {
-    try {
- await fetch(
+    // try {
+ const request = await fetch(
       `https://avwx.rest/api/metar/${IataCode}?` +
         new URLSearchParams({
           token: '3VscM03wDOQIXkxWJTAAqoPzsYH32Z8GWX6VF6uTe7M',
         })
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setAirportWeather({
+ )
+      const data = await request.json();
+
+      setAirportWeather({
           raw: data.raw,
           timeStamp: data.meta.timestamp,
           rules: data.flight_rules,
@@ -93,10 +110,29 @@ const Airport = () => {
           dewpoint: data.dewpoint.value,
           wxCode: data.wx_codes,
         });
-      })  
-    } catch (error) {
-      console.log(error)
-    }
+
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     setAirportWeather({
+    //       raw: data.raw,
+    //       timeStamp: data.meta.timestamp,
+    //       rules: data.flight_rules,
+    //       altimeter: data.altimeter.value,
+    //       clouds: data.clouds,
+    //       visibility: data.visibility.repr,
+    //       windDirection: data.wind_direction.repr,
+    //       windGust: data.wind_guest,
+    //       windSpeed: data.wind_speed.value,
+    //       temp: data.temperature.value,
+    //       metarTime: data.time.repr,
+    //       remarks: data.remarks,
+    //       dewpoint: data.dewpoint.value,
+    //       wxCode: data.wx_codes,
+    //     });
+    //   })  
+    // } catch (error) {
+    //   console.log(error)
+    // }
   };
 
   //new fux throws error
