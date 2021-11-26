@@ -3,7 +3,7 @@ import tw from 'tailwind-styled-components'
 import Clouds from './Clouds';
 
 const WeatherData = (props) => {
-  if (props.airportWeather) {
+  // if (props.airportWeather) {
     return (
       <Wrapper>
         <WeatherInfo>
@@ -62,7 +62,7 @@ const WeatherData = (props) => {
         </WeatherInfo>
       </Wrapper>
     );
-  }
+  // }
   // else {
   //   let clouds = [];
   // }

@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import tw from 'tailwind-styled-components'
 
 const AirportInfo = (props) => {
-  if (props.AirportInfo) {
+  // if (props.AirportInfo) {
     return (
       <Wrapper>
         <AirportName>
@@ -64,9 +64,9 @@ const AirportInfo = (props) => {
         </AirportData>
       </Wrapper>
     );
-  } else {
-    return <h1>Loading ...</h1>;
-  }
+  // } else {
+  //   return <h1>Loading ...</h1>;
+  // }
 
   //code that works
     // return (
