@@ -13,7 +13,7 @@ const Header = () => {
   useEffect(() => {
     return onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log(user);
+        // console.log(user);
         setUser({
           name: user.displayName,
           photoUrl: user.photoURL,

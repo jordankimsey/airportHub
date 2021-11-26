@@ -6,68 +6,67 @@ const WeatherData = (props) => {
   if (props.airportWeather.clouds) {
   let clouds = props.airportWeather.clouds;  
   } else {
-    let clouds = null;
+    let clouds = [];
   }
   
  
     return (
       <Wrapper>
         <WeatherInfo>
-          <h3>
-            <WeatherTitle>Raw METAR:</WeatherTitle> {props.airportWeather.raw}
-          </h3>
-          <h3>
-            <WeatherTitle>Time:</WeatherTitle> {props.airportWeather.timeStamp}
-          </h3>
-          <h3>
-            <WeatherTitle>Metar Time:</WeatherTitle>{' '}
-            {props.airportWeather.metarTime}
-          </h3>
-          <h3>
-            <WeatherTitle>Flight Rules:</WeatherTitle>{' '}
-            {props.airportWeather.rules}
-          </h3>
-          <h3>
-            <WeatherTitle>Altimeter:</WeatherTitle>{' '}
-            {props.airportWeather.altimeter} inHg
-          </h3>
-          <h3>
-            <CloudContainer>
-              <WeatherTitle>Clouds:</WeatherTitle>
-              <Clouds cloud={props.airportWeather.clouds} />
-            </CloudContainer>
-          </h3>
-          <h3>
-            <WeatherTitle>Visibility:</WeatherTitle>{' '}
-            {props.airportWeather.visibility} sm
-          </h3>
-          <h3>
-            <WeatherTitle>Wind Direction:</WeatherTitle>{' '}
-            {props.airportWeather.windDirection}&deg;
-          </h3>
-          <h3>
-            <WeatherTitle>Wind Speed:</WeatherTitle>{' '}
-            {props.airportWeather.windSpeed} kts
-          </h3>
-          <h3>
-            <WeatherTitle>Wind Guest:</WeatherTitle>{' '}
-            {props.airportWeather.windGuest}
-          </h3>
-          <h3>
-            <WeatherTitle>Temperature:</WeatherTitle>{' '}
-            {props.airportWeather.temp} &deg;C
-          </h3>
-          <h3>
-            <WeatherTitle>Dewpoint:</WeatherTitle>{' '}
-            {props.airportWeather.dewpoint} &deg;C
-          </h3>
-          <h3>
-            <WeatherTitle>Remarks:</WeatherTitle> {props.airportWeather.remarks}
-          </h3>
-          <h3>
-            <WeatherTitle>Other:</WeatherTitle> {props.airportWeather.wxCode}
-          </h3>
+          <WeatherTitle>Raw METAR:</WeatherTitle> {props.airportWeather.raw}
         </WeatherInfo>
+        <WeatherInfo>
+          <WeatherTitle>Time:</WeatherTitle> {props.airportWeather.timeStamp}
+        </WeatherInfo>
+        <WeatherInfo>
+          <WeatherTitle>Metar Time:</WeatherTitle>{' '}
+          {props.airportWeather.metarTime}
+        </WeatherInfo>
+        <WeatherInfo>
+          <WeatherTitle>Flight Rules:</WeatherTitle>{' '}
+          {props.airportWeather.rules}
+        </WeatherInfo>
+        <WeatherInfo>
+          <WeatherTitle>Altimeter:</WeatherTitle>{' '}
+          {props.airportWeather.altimeter} inHg
+        </WeatherInfo>
+        <WeatherInfo>
+          <CloudContainer>
+            <WeatherTitle>Clouds:</WeatherTitle>
+            <Clouds cloud={props.airportWeather.clouds} />
+          </CloudContainer>
+        </WeatherInfo>
+        <WeatherInfo>
+          <WeatherTitle>Visibility:</WeatherTitle>{' '}
+          {props.airportWeather.visibility} sm
+        </WeatherInfo>
+        <WeatherInfo>
+          <WeatherTitle>Wind Direction:</WeatherTitle>{' '}
+          {props.airportWeather.windDirection}&deg;
+        </WeatherInfo>
+        <WeatherInfo>
+          <WeatherTitle>Wind Speed:</WeatherTitle>{' '}
+          {props.airportWeather.windSpeed} kts
+        </WeatherInfo>
+        <WeatherInfo>
+          <WeatherTitle>Wind Guest:</WeatherTitle>{' '}
+          {props.airportWeather.windGuest}
+        </WeatherInfo>
+        <WeatherInfo>
+          <WeatherTitle>Temperature:</WeatherTitle> {props.airportWeather.temp}{' '}
+          &deg;C
+        </WeatherInfo>
+        <WeatherInfo>
+          <WeatherTitle>Dewpoint:</WeatherTitle> {props.airportWeather.dewpoint}{' '}
+          &deg;C
+        </WeatherInfo>
+        <WeatherInfo>
+          <WeatherTitle>Remarks:</WeatherTitle> {props.airportWeather.remarks}
+        </WeatherInfo>
+        <WeatherInfo>
+          <WeatherTitle>Other:</WeatherTitle> {props.airportWeather.wxCode}
+        </WeatherInfo>
+        
       </Wrapper>
     );
 }
