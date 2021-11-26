@@ -2,7 +2,12 @@ import React from 'react';
 
 
 const Clouds = (props) => {
-    const cloudArray = props.cloud
+    if (props.cloud) {
+    const cloudArray = props.cloud;    
+    } else {
+        return null;
+    }
+    
     // console.log(cloudArray[0].repr)
      
     return (
