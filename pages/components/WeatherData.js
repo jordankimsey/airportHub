@@ -2,63 +2,67 @@ import React from 'react'
 import tw from 'tailwind-styled-components'
 import Clouds from './Clouds';
 
-const WeatherData = (props) => {
+const WeatherData = ({ airportWeather }) => {
+  if (!airportWeather) {
+    return null;
+  }
+  
   // if (props.airportWeather) {
     return (
       <Wrapper>
         <WeatherInfo>
-          <WeatherTitle>Raw METAR:</WeatherTitle> {props.airportWeather.raw}
+          <WeatherTitle>Raw METAR:</WeatherTitle> {airportWeather.raw}
         </WeatherInfo>
         <WeatherInfo>
-          <WeatherTitle>Time:</WeatherTitle> {props.airportWeather.timeStamp}
+          <WeatherTitle>Time:</WeatherTitle> {airportWeather.timeStamp}
         </WeatherInfo>
         <WeatherInfo>
           <WeatherTitle>Metar Time:</WeatherTitle>{' '}
-          {props.airportWeather.metarTime}
+          {airportWeather.metarTime}
         </WeatherInfo>
         <WeatherInfo>
           <WeatherTitle>Flight Rules:</WeatherTitle>{' '}
-          {props.airportWeather.rules}
+          {airportWeather.rules}
         </WeatherInfo>
         <WeatherInfo>
           <WeatherTitle>Altimeter:</WeatherTitle>{' '}
-          {props.airportWeather.altimeter} inHg
+          {airportWeather.altimeter} inHg
         </WeatherInfo>
         <WeatherInfo>
           <CloudContainer>
             <WeatherTitle>Clouds:</WeatherTitle>
-            <Clouds cloud={props.airportWeather.clouds} />
+            <Clouds cloud={airportWeather.clouds} />
           </CloudContainer>
         </WeatherInfo>
         <WeatherInfo>
           <WeatherTitle>Visibility:</WeatherTitle>{' '}
-          {props.airportWeather.visibility} sm
+          {airportWeather.visibility} sm
         </WeatherInfo>
         <WeatherInfo>
           <WeatherTitle>Wind Direction:</WeatherTitle>{' '}
-          {props.airportWeather.windDirection}&deg;
+          {airportWeather.windDirection}&deg;
         </WeatherInfo>
         <WeatherInfo>
           <WeatherTitle>Wind Speed:</WeatherTitle>{' '}
-          {props.airportWeather.windSpeed} kts
+          {airportWeather.windSpeed} kts
         </WeatherInfo>
         <WeatherInfo>
           <WeatherTitle>Wind Guest:</WeatherTitle>{' '}
-          {props.airportWeather.windGuest}
+          {airportWeather.windGuest}
         </WeatherInfo>
         <WeatherInfo>
-          <WeatherTitle>Temperature:</WeatherTitle> {props.airportWeather.temp}{' '}
+          <WeatherTitle>Temperature:</WeatherTitle> {airportWeather.temp}{' '}
           &deg;C
         </WeatherInfo>
         <WeatherInfo>
-          <WeatherTitle>Dewpoint:</WeatherTitle> {props.airportWeather.dewpoint}{' '}
+          <WeatherTitle>Dewpoint:</WeatherTitle> {airportWeather.dewpoint}{' '}
           &deg;C
         </WeatherInfo>
         <WeatherInfo>
-          <WeatherTitle>Remarks:</WeatherTitle> {props.airportWeather.remarks}
+          <WeatherTitle>Remarks:</WeatherTitle> {airportWeather.remarks}
         </WeatherInfo>
         <WeatherInfo>
-          <WeatherTitle>Other:</WeatherTitle> {props.airportWeather.wxCode}
+          <WeatherTitle>Other:</WeatherTitle> {airportWeather.wxCode}
         </WeatherInfo>
       </Wrapper>
     );

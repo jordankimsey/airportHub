@@ -1,46 +1,49 @@
 import React, {useEffect} from 'react'
 import tw from 'tailwind-styled-components'
 
-const AirportInfo = (props) => {
+const AirportInfo = ({airportInfo}) => {
+  if (!airportInfo) {
+    return null;
+  }
   // if (props.AirportInfo) {
     return (
       <Wrapper>
         <AirportName>
-          <h2>{props.airportInfo.name}</h2>
+          <h2>{airportInfo.name}</h2>
         </AirportName>
         <AirportData>
-          <InfoTitle>City:</InfoTitle> {props.airportInfo.city}
+          <InfoTitle>City:</InfoTitle> {airportInfo.city}
         </AirportData>
         <AirportData>
           <InfoTitle>State:</InfoTitle>
-          {props.airportInfo.state}
+          {airportInfo.state}
         </AirportData>
         <AirportData>
-          <InfoTitle>Country:</InfoTitle> {props.airportInfo.country}
+          <InfoTitle>Country:</InfoTitle> {airportInfo.country}
         </AirportData>
         <AirportData>
-          <InfoTitle>Elevation:</InfoTitle> {props.airportInfo.elevation} ft.
+          <InfoTitle>Elevation:</InfoTitle> {airportInfo.elevation} ft.
         </AirportData>
         <AirportData>
-          <InfoTitle>Longitude:</InfoTitle> {props.airportInfo.longitude}
+          <InfoTitle>Longitude:</InfoTitle> {airportInfo.longitude}
         </AirportData>
         <AirportData>
-          <InfoTitle>Latitude:</InfoTitle> {props.airportInfo.latitude}
+          <InfoTitle>Latitude:</InfoTitle> {airportInfo.latitude}
         </AirportData>
         <AirportData>
-          <InfoTitle>IATA:</InfoTitle> {props.airportInfo.IATA}
+          <InfoTitle>IATA:</InfoTitle> {airportInfo.IATA}
         </AirportData>
         <AirportData>
-          <InfoTitle>ICAO:</InfoTitle> {props.airportInfo.ICAO}
+          <InfoTitle>ICAO:</InfoTitle> {airportInfo.ICAO}
         </AirportData>
         <AirportData>
-          <InfoTitle>Type:</InfoTitle> {props.airportInfo.type}
+          <InfoTitle>Type:</InfoTitle> {airportInfo.type}
         </AirportData>
         <AirportData>
           <InfoTitle>
             <AirportLinks>
               <a
-                href={props.airportInfo.website}
+                href={airportInfo.website}
                 target='_blank'
                 rel='noreferrer noopener'
               >
@@ -53,7 +56,7 @@ const AirportInfo = (props) => {
           <InfoTitle>
             <AirportLinks>
               <a
-                href={props.airportInfo.wiki}
+                href={airportInfo.wiki}
                 target='_blank'
                 rel='noreferrer noopener'
               >
