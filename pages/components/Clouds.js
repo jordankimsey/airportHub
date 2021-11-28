@@ -1,13 +1,15 @@
 import React from 'react';
 
-const Clouds = (props) => {
+const Clouds = ({cloud}) => {
   // if (props.cloud) {
-    const cloudArray = props.cloud;
+  if (!cloud) {
+    return null;
+   }
       
     return (
       <div>
         <ul className='cloudArray'>
-          {cloudArray.map((cloud, index) => {
+          {cloud.map((cloud, index) => {
             return <li key={index}>{cloud.repr}</li>;
           })}
         </ul>

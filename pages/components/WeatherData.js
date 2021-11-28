@@ -31,7 +31,9 @@ const WeatherData = ({ airportWeather }) => {
         <WeatherInfo>
           <CloudContainer>
             <WeatherTitle>Clouds:</WeatherTitle>
-            <Clouds cloud={airportWeather.clouds} />
+            {airportWeather.clouds
+              ? <Clouds cloud={airportWeather.clouds} />
+              : null}
           </CloudContainer>
         </WeatherInfo>
         <WeatherInfo>
