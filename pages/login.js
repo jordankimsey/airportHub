@@ -23,13 +23,12 @@ const Login = () => {
     <Wrapper
       style={{
         //change url to host url with file path
-        backgroundImage: `url(http://localhost:3000/assets/login.jpg)`,
+        backgroundImage: `url(https://airport-hub.vercel.app/assets/login.jpg)`,
         width: '100vw',
         height: '100vh',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        // overflowY: 'hidden',
       }}
     >
       <Header />

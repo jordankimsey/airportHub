@@ -15,13 +15,13 @@ const Header = () => {
       if (user) {
         // console.log(user);
         setUser({
-          name: user.displayName,
+        name: user.displayName,
           photoUrl: user.photoURL,
         });
-      } else {
-        setUser(null);
+  } else {
+    setUser(null);
         router.push('/login');
-      }
+  }
     });
   }, [router]);
 

@@ -14,7 +14,7 @@ const MainSearch = () => {
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        // overflowY: 'hidden',
+  
       }}
     >
       <SearchContainer>

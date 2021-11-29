@@ -6,7 +6,7 @@ import Header from './components/Header';
 import WeatherData from './components/WeatherData';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-// import axios from 'axios';
+
 
 
 const Airport = () => {
@@ -45,25 +45,13 @@ const Airport = () => {
     wxCode: '',
   });
 
-//attempt to fix
-  // useEffect(() => {
-  //   async function fetchData(IataCode) {
-  //     const request = await axios.get(`https://avwx.rest/api/station/${IataCode}?format=json&3VscM03wDOQIXkxWJTAAqoPzsYH32Z8GWX6VF6uTe7M`);
-  //     console.log(request)
-  //     return request;
-  //   }
-  //   fetchData();
-  // }, [])
-
   const getAirportCoordinates = async (IataCode) => {
-   
       const request = await fetch(
         `https://avwx.rest/api/station/${IataCode}?format=json&` +
         new URLSearchParams({
           token: '3VscM03wDOQIXkxWJTAAqoPzsYH32Z8GWX6VF6uTe7M',
         })
       );
-    console.log(request)
     if (request.status == 400) {
       return alert('Not found')
     }
@@ -84,9 +72,8 @@ const Airport = () => {
           });
   }
 
-  // working code with error if no airport found
+  
   const getAirportWeather = async (IataCode) => {
-   
  const request = await fetch(
       `https://avwx.rest/api/metar/${IataCode}?` +
         new URLSearchParams({
@@ -97,7 +84,7 @@ const Airport = () => {
      return alert('Not found');
 
     }
-    console.log('weather req',request)
+  
       const data = await request.json();
       setAirportWeather({
           raw: data.raw,
@@ -117,7 +104,7 @@ const Airport = () => {
       });
   };
 
-  // working code with error if no airport found
+  
   useEffect(() => {
     if (IataCode) {
       getAirportCoordinates(IataCode);

@@ -5,7 +5,7 @@ const AirportInfo = ({airportInfo}) => {
   if (!airportInfo) {
     return null;
   }
-  // if (props.AirportInfo) {
+  
     return (
       <Wrapper>
         <AirportName>
@@ -67,72 +67,7 @@ const AirportInfo = ({airportInfo}) => {
         </AirportData>
       </Wrapper>
     );
-  // } else {
-  //   return <h1>Loading ...</h1>;
-  // }
-
-  //code that works
-    // return (
-    //   <Wrapper>
-    //     <AirportName>
-    //       <h2>{props.airportInfo.name}</h2>
-    //     </AirportName>
-    //     <AirportData>
-    //       <InfoTitle>City:</InfoTitle> {props.airportInfo.city}
-    //     </AirportData>
-    //     <AirportData>
-    //       <InfoTitle>State:</InfoTitle>
-    //       {props.airportInfo.state}
-    //     </AirportData>
-    //     <AirportData>
-    //       <InfoTitle>Country:</InfoTitle> {props.airportInfo.country}
-    //     </AirportData>
-    //     <AirportData>
-    //       <InfoTitle>Elevation:</InfoTitle> {props.airportInfo.elevation} ft.
-    //     </AirportData>
-    //     <AirportData>
-    //       <InfoTitle>Longitude:</InfoTitle> {props.airportInfo.longitude}
-    //     </AirportData>
-    //     <AirportData>
-    //       <InfoTitle>Latitude:</InfoTitle> {props.airportInfo.latitude}
-    //     </AirportData>
-    //     <AirportData>
-    //       <InfoTitle>IATA:</InfoTitle> {props.airportInfo.IATA}
-    //     </AirportData>
-    //     <AirportData>
-    //       <InfoTitle>ICAO:</InfoTitle> {props.airportInfo.ICAO}
-    //     </AirportData>
-    //     <AirportData>
-    //       <InfoTitle>Type:</InfoTitle> {props.airportInfo.type}
-    //     </AirportData>
-    //     <AirportData>
-    //       <InfoTitle>
-    //         <AirportLinks>
-    //           <a
-    //             href={props.airportInfo.website}
-    //             target='_blank'
-    //             rel='noreferrer noopener'
-    //           >
-    //             Offical Website
-    //           </a>
-    //         </AirportLinks>
-    //       </InfoTitle>
-    //     </AirportData>
-    //     <AirportData>
-    //       <InfoTitle>
-    //         <AirportLinks>
-    //           <a
-    //             href={props.airportInfo.wiki}
-    //             target='_blank'
-    //             rel='noreferrer noopener'
-    //           >
-    //             Wikipedia
-    //           </a>
-    //         </AirportLinks>
-    //       </InfoTitle>
-    //     </AirportData>
-    //   </Wrapper>
-    // );
+ 
 }
 
 export default AirportInfo;
